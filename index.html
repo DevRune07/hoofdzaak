@@ -6,59 +6,112 @@
 <title>Kapsalon De Hoofdzaak</title>
 
 <style>
+/* ===== BASE ===== */
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  color: #222;
+  font-family: 'Arial', sans-serif;
+  background: #0f0f0f;
+  color: white;
+  overflow-x: hidden;
 }
 
+/* ===== HERO ===== */
 header {
-  background: url('https://images.unsplash.com/photo-1522337360788-8b13dee7a37e') center/cover;
-  height: 90vh;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  color: white;
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)),
+              url('https://images.unsplash.com/photo-1522337660859-02fbefca4702') center/cover;
+  position: relative;
 }
 
-header h1 {
+.hero-text {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 1.5s ease forwards;
+}
+
+.hero-text h1 {
   font-size: 3rem;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.hero-text p {
+  margin-top: 10px;
+  opacity: 0.8;
 }
 
 .btn {
   display: inline-block;
-  padding: 12px 24px;
   margin-top: 20px;
-  background: black;
-  color: white;
-  text-decoration: none;
+  padding: 12px 25px;
+  background: white;
+  color: black;
   border-radius: 30px;
+  text-decoration: none;
+  transition: 0.3s;
 }
 
+.btn:hover {
+  transform: scale(1.05);
+  background: #ddd;
+}
+
+/* ===== SECTIONS ===== */
 section {
-  padding: 60px 20px;
+  padding: 80px 20px;
   max-width: 1000px;
   margin: auto;
 }
 
-.services {
+/* fade-in scroll animation */
+.hidden {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1s ease;
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== SERVICES ===== */
+.grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
 }
 
 .card {
+  background: #1a1a1a;
   padding: 20px;
-  border: 1px solid #eee;
-  border-radius: 10px;
+  border-radius: 15px;
+  transition: 0.3s;
 }
 
+.card:hover {
+  transform: translateY(-8px);
+  background: #222;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== FOOTER ===== */
 footer {
-  background: #111;
-  color: white;
   text-align: center;
-  padding: 30px;
+  padding: 40px;
+  background: #000;
+  opacity: 0.7;
 }
 </style>
 </head>
@@ -66,59 +119,82 @@ footer {
 <body>
 
 <header>
-  <div>
-    <h1>Jouw haar, jouw stijl</h1>
-    <p>Specialist in kleur, balayage en gezond haar</p>
+  <div class="hero-text">
+    <h1 id="typing">Jouw haar, jouw stijl</h1>
+    <p>Balayage • Kleur • Professionele styling</p>
     <a href="#" class="btn">Boek afspraak</a>
   </div>
 </header>
 
-<section>
+<section class="hidden">
   <h2>Waarom kiezen voor ons?</h2>
-  <p>Persoonlijk advies, moderne technieken en een ontspannen sfeer zorgen ervoor dat jij buitenstapt met een kapsel dat écht bij je past.</p>
+  <p>Wij combineren techniek, stijl en persoonlijk advies voor een look die écht bij jou past.</p>
 </section>
 
-<section>
+<section class="hidden">
   <h2>Diensten</h2>
-  <div class="services">
+  <div class="grid">
     <div class="card">
-      <h3>Kleuren & Balayage</h3>
-      <p>Natuurlijke en moderne kleurtechnieken.</p>
+      <h3>Balayage</h3>
+      <p>Natuurlijke kleur met zachte overgangen.</p>
     </div>
     <div class="card">
       <h3>Snit & Styling</h3>
-      <p>Perfect afgestemd op jouw gezicht en stijl.</p>
+      <p>Modern, fris en perfect op maat.</p>
     </div>
     <div class="card">
-      <h3>Herstel & Verzorging</h3>
-      <p>Keratine en verzorging voor gezond haar.</p>
+      <h3>Verzorging</h3>
+      <p>Keratine & herstelbehandelingen.</p>
     </div>
   </div>
 </section>
 
-<section>
+<section class="hidden">
   <h2>Reviews</h2>
-  <p>⭐⭐⭐⭐⭐ “Beste kapper ooit!”</p>
-  <p>⭐⭐⭐⭐⭐ “Super vriendelijk en professioneel.”</p>
+  <p>⭐⭐⭐⭐⭐ “Mijn haar heeft er nog nooit zo goed uitgezien!”</p>
+  <p>⭐⭐⭐⭐⭐ “Super professioneel en vriendelijk.”</p>
 </section>
 
-<section>
-  <h2>Prijzen</h2>
-  <p>Snit + brushing — vanaf €58</p>
-  <p>Kleuring — vanaf €44</p>
-  <p>Balayage — prijs na consult</p>
-</section>
-
-<section style="text-align:center;">
-  <h2>Klaar voor een nieuwe look?</h2>
+<section class="hidden" style="text-align:center;">
+  <h2>Klaar voor jouw nieuwe look?</h2>
   <a href="#" class="btn">Boek nu</a>
 </section>
 
 <footer>
-  <p>Kapsalon De Hoofdzaak</p>
-  <p>Sint-Niklaasstraat 106, Steenhuffel</p>
-  <p>Tel: 052 55 65 51</p>
+  Kapsalon De Hoofdzaak • Steenhuffel • 052 55 65 51
 </footer>
+
+<script>
+// ===== SCROLL ANIMATION =====
+const elements = document.querySelectorAll('.hidden');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+    }
+  });
+});
+
+elements.forEach(el => observer.observe(el));
+
+// ===== SIMPLE TYPING EFFECT =====
+const text = "Jouw haar, jouw stijl";
+let i = 0;
+const speed = 80;
+
+function typeWriter() {
+  if (i < text.length) {
+    document.getElementById("typing").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  }
+}
+
+// reset voor typing effect
+document.getElementById("typing").innerHTML = "";
+typeWriter();
+</script>
 
 </body>
 </html>
