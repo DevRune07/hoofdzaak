@@ -1,7 +1,11 @@
-/* ===== BASIS ===== */
+
+/* =========================
+   BASE / RESET
+========================= */
 html, body {
   height: 100%;
   margin: 0;
+  padding: 0;
 }
 
 body {
@@ -14,16 +18,22 @@ body {
   min-height: 100vh;
 }
 
-/* ===== NAVBAR ===== */
+/* =========================
+   NAVIGATION
+========================= */
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   padding: 20px 40px;
-  background: white;
+  background: #ffffff;
+
   position: sticky;
   top: 0;
+
   box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  z-index: 1000;
 }
 
 nav a {
@@ -31,42 +41,59 @@ nav a {
   margin: 0 10px;
   color: #2b2b2b;
   font-weight: bold;
-  transition: 0.3s;
+  transition: 0.3s ease;
 }
 
 nav a:hover {
   color: #b08d57;
 }
 
-/* ===== HERO ===== */
+/* =========================
+   HERO SECTION
+========================= */
 .hero {
   height: 90vh;
+
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
 
-  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
-  url('https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f') center/cover;
-
   color: white;
+
+  background:
+    linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)),
+    url('https://images.unsplash.com/photo-1522337360788-8b13dee7a37e') center/cover;
+
+  padding: 20px;
 }
 
 .hero h1 {
   font-size: 3rem;
+  margin: 0;
   animation: fadeIn 1.5s ease;
 }
 
-/* ===== BUTTON ===== */
+.hero p {
+  opacity: 0.9;
+}
+
+/* =========================
+   BUTTONS
+========================= */
 .btn {
   background: #b08d57;
   color: white;
+
   padding: 12px 25px;
   border-radius: 30px;
+
   text-decoration: none;
   display: inline-block;
+
   margin-top: 20px;
-  transition: 0.3s;
+
+  transition: 0.3s ease;
 }
 
 .btn:hover {
@@ -74,52 +101,79 @@ nav a:hover {
   transform: scale(1.05);
 }
 
-/* ===== SECTIONS ===== */
+/* =========================
+   SECTIONS
+========================= */
 section {
   padding: 60px 20px;
   max-width: 1000px;
   margin: auto;
+
   flex: 1;
   text-align: left;
 }
 
-/* ===== CENTER CLASS ===== */
+/* center variant */
 .center {
   text-align: center;
 }
 
-/* ===== GRID ===== */
+/* =========================
+   GRID / LAYOUT
+========================= */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
 }
 
-/* ===== CARDS ===== */
+/* =========================
+   CARDS
+========================= */
 .card {
   background: white;
   padding: 20px;
+
   border-radius: 15px;
+
   box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-  transition: 0.3s;
+
+  transition: 0.3s ease;
 }
 
 .card:hover {
   transform: translateY(-5px);
 }
 
-/* ===== OPENINGSUREN EXTRA ===== */
+/* text inside cards */
 .card p {
   margin: 8px 0;
-  font-size: 16px;
+  font-size: 15px;
 }
 
+/* divider in cards */
 .card hr {
   border: none;
   border-top: 1px solid #eee;
 }
 
-/* ===== ANIMATIE ===== */
+/* =========================
+   IMAGES / GALLERY
+========================= */
+.grid img {
+  width: 100%;
+  border-radius: 12px;
+
+  transition: 0.3s ease;
+}
+
+.grid img:hover {
+  transform: scale(1.05);
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -131,11 +185,26 @@ section {
   }
 }
 
-/* ===== FOOTER ===== */
+/* =========================
+   FOOTER
+========================= */
 footer {
   text-align: center;
   padding: 30px;
+
   background: #111;
   color: white;
+
   margin-top: auto;
+}
+
+/* =========================
+   TYPOGRAPHY
+========================= */
+h1, h2, h3 {
+  margin-top: 0;
+}
+
+p {
+  line-height: 1.6;
 }
